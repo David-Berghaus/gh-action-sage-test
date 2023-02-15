@@ -26,8 +26,6 @@ on:
 
 jobs:
   local-macos-nohomebrew:
-    needs: [dist]
-
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

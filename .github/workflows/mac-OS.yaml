@@ -37,10 +37,10 @@ jobs:
         run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
       - name: mount-dmg
         run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
-      - name: install-dmg
-        run: sudo installer -package /Volumes/SageMath-9.5_x86_64/SageMath-9.5_x86_64.app -target /
       - name: foo
         run: ls /Volumes/SageMath-9.5/
+      - name: install-dmg
+        run: sudo installer -package /Volumes/SageMath-9.5_x86_64/SageMath-9.5_x86_64.app -target /
       - name: unmount-dmg
         run: sudo hdiutil detach /Volumes/SageMath-9.5_x86_64
       - uses: actions/checkout@v3

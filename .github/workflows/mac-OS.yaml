@@ -43,7 +43,7 @@ jobs:
       - name: mount-dmg
         run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
       - name: foo
-        run: brew install --cask sage@9.5
+        run: brew install sage@9.5
       - name: install-dmg
         run: sudo cp -R /Volumes/SageMath-9.5/SageMath-9-5.app /Applications
       - name: unmount-dmg

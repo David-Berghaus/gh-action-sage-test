@@ -1,0 +1,48 @@
+name: CI macOS
+
+## This GitHub Actions workflow runs SAGE_ROOT/tox.ini with select environments,
+## whenever a GitHub pull request is opened or synchronized in a repository
+## where GitHub Actions are enabled.
+##
+## It builds and checks some sage spkgs as defined in TARGETS.
+##
+## A job succeeds if there is no error.
+##
+## The build is run with "make V=0", so the build logs of individual packages are suppressed.
+##
+## At the end, all package build logs that contain an error are printed out.
+##
+## After all jobs have finished (or are canceled) and a short delay,
+## tar files of all logs are made available as "build artifacts".
+
+#on: [push, pull_request]
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+    # Allow to run manually
+
+jobs:
+  local-macos-nohomebrew:
+    needs: [dist]
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        os: [ macos-11, macos-12 ]
+    steps:
+      - name: download-sage
+        run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
+      - name: mount-dmg
+        run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
+      - name: install-dmg
+        run: sudo installer -package /Volumes/SageMath-9.5_x86_64/SageMath-9.5_x86_64.pkg -target /
+      - name: unmount-dmg
+        run: sudo hdiutil detach /Volumes/SageMath-9.5_x86_64
+      - uses: actions/checkout@v3
+      - name: compile-code
+        run: sage setup.py develop

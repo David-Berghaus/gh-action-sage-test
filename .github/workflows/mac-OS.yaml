@@ -40,9 +40,9 @@ jobs:
       - name: foo
         run: ls /Volumes/SageMath-9.5/
       - name: install-dmg
-        run: sudo installer -package /Volumes/SageMath-9.5_x86_64/SageMath-9.5_x86_64.app -target /
+        run: sudo installer -package /Volumes/SageMath-9.5/SageMath-9.5.app -target /
       - name: unmount-dmg
-        run: sudo hdiutil detach /Volumes/SageMath-9.5_x86_64
+        run: sudo hdiutil detach /Volumes/SageMath-9.5
       - uses: actions/checkout@v3
       - name: compile-code
         run: sage setup.py develop

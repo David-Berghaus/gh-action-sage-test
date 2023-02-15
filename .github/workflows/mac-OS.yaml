@@ -38,16 +38,16 @@ jobs:
       matrix:
         os: [ macos-11, macos-12 ]
     steps:
-      - name: download-sage
-        run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
-      - name: mount-dmg
-        run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
       - name: foo
-        run: brew install sage@9.5
-      - name: install-dmg
-        run: sudo cp -R /Volumes/SageMath-9.5/SageMath-9-5.app /Applications
-      - name: unmount-dmg
-        run: sudo hdiutil detach /Volumes/SageMath-9.5
-      - uses: actions/checkout@v3
-      - name: compile-code
-        run: sage setup.py develop
+        run: brew search sage
+      # - name: download-sage
+      #   run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
+      # - name: mount-dmg
+      #   run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
+      # - name: install-dmg
+      #   run: sudo cp -R /Volumes/SageMath-9.5/SageMath-9-5.app /Applications
+      # - name: unmount-dmg
+      #   run: sudo hdiutil detach /Volumes/SageMath-9.5
+      # - uses: actions/checkout@v3
+      # - name: compile-code
+      #   run: sage setup.py develop

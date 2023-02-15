@@ -21,9 +21,13 @@ on:
   push:
     branches:
     - main
+    - develop
   pull_request:
     branches:
     - main
+    - develop
+  workflow_dispatch:
+    # Allow to run manually
 
 jobs:
   local-macos-nohomebrew:

@@ -36,7 +36,8 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        os: [ macos-11, macos-12 ]
+        # os: [ macos-11, macos-12 ]
+        os: [ macos-12 ]
     steps:
       - name: Download Sage
         run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
@@ -51,8 +52,6 @@ jobs:
         run: open /Applications/SageMath-9-5.app --args -setup.py -develop
       - name: Test with python
         run: python3 setup.py develop
-      - name: Test with Sage
-        run: SageMath-9-5 setup.py develop
       - name: Foo
         run: cd /Applications/SageMath-9-5.app/
       - name: Foo

@@ -55,4 +55,4 @@ jobs:
       - name: Foo
         run: ls /Applications/SageMath-9-5.app/Contents/MacOS/
       - name: Foo
-        run: /Applications/SageMath-9-5.app/Contents/MacOS/SageMath-9-5 setup.py develop
+        run: /Applications/SageMath-9-5.app/Contents/MacOS/SageMath setup.py develop

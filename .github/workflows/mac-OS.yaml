@@ -51,3 +51,9 @@ jobs:
         run: open /Applications/SageMath-9-5.app --args -setup.py -develop
       - name: Test with python
         run: python3 setup.py develop
+      - name: Test with Sage
+        run: SageMath-9-5 setup.py develop
+      - name: Foo
+        run: cd /Applications/SageMath-9-5.app/
+      - name: Foo
+        run: ls

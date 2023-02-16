@@ -53,4 +53,6 @@ jobs:
       - name: Test with python
         run: python3 setup.py develop
       - name: Foo
-        run: ls /Applications/SageMath-9-5.app/
+        run: ls /Applications/SageMath-9-5.app/Contents/MacOS/
+      - name: Foo
+        run: /Applications/SageMath-9-5.app/Contents/MacOS/SageMath-9-5 setup.py develop

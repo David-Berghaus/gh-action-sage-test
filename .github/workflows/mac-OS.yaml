@@ -53,6 +53,4 @@ jobs:
       - name: Test with python
         run: python3 setup.py develop
       - name: Foo
-        run: cd /Applications/SageMath-9-5.app/
-      - name: Foo
-        run: ls
+        run: ls /Applications/SageMath-9-5.app/

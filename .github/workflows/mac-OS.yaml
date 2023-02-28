@@ -45,12 +45,8 @@ jobs:
         run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
       - name: Navigate to new volume
         run: cd /Volumes/SageMath-9.5/
-      - name: Show contents
-        run: cd SageMath-9-5.app
-      - name: Show contents
-        run: ls
       - name: Install dmg
-        run: sudo installer -pkg /Volumes/SageMath-9.5/SageMath-9-5.app/Contents/Resource/SageMath-9-5.pkg -target /
+        run: open /Volumes/SageMath-9.5/SageMath-9-5.app
       - name: Unmount dmg
         run: sudo hdiutil detach /Volumes/SageMath-9.5
       - uses: actions/checkout@v3

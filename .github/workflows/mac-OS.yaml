@@ -15,18 +15,18 @@ name: CI macOS
 ## After all jobs have finished (or are canceled) and a short delay,
 ## tar files of all logs are made available as "build artifacts".
 
-#on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
-on:
-  push:
-    branches:
-    - main
-    - develop
-  pull_request:
-    branches:
-    - main
-    - develop
-  workflow_dispatch:
+#on:
+#  push:
+#    branches:
+#    - main
+#    - develop
+#  pull_request:
+#    branches:
+#    - main
+#    - develop
+#  workflow_dispatch:
     # Allow to run manually
 
 jobs:

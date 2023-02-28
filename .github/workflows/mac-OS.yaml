@@ -46,7 +46,9 @@ jobs:
       - name: Navigate to new volume
         run: cd /Volumes/SageMath-9.5/
       - name: Show contents
-        run: ls ./SageMath-9-5.app/Contents/Resource/
+        run: cd SageMath-9-5.app
+      - name: Show contents
+        run: ls
       - name: Install dmg
         run: sudo installer -pkg /Volumes/SageMath-9.5/SageMath-9-5.app/Contents/Resource/SageMath-9-5.pkg -target /
       - name: Unmount dmg

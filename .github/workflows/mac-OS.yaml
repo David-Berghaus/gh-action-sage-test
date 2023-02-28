@@ -43,13 +43,17 @@ jobs:
         run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
       - name: Mount dmg
         run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
+      - name: Navigate to new volume
+        run: cd /Volumes/SageMath-9.5/
+      - name: Show contents
+        run: ls ./SageMath-9-5.app/Contents/Resource/
       - name: Install dmg
-        run: sudo cp -R /Volumes/SageMath-9.5/SageMath-9-5.app /Applications
+        run: sudo installer -pkg /Volumes/SageMath-9.5/SageMath-9-5.app/Contents/Resource/SageMath-9-5.pkg -target /
       - name: Unmount dmg
         run: sudo hdiutil detach /Volumes/SageMath-9.5
       - uses: actions/checkout@v3
       - name: Compile code
-        run: open /Applications/SageMath-9-5.app --args -setup.py -develop
+        run: sage setup.py develop
       - name: Test with python
         run: python3 setup.py develop
       - name: Foo

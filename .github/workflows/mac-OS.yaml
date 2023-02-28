@@ -39,17 +39,9 @@ jobs:
         # os: [ macos-11, macos-12 ]
         os: [ macos-12 ]
     steps:
-      - name: Download Sage
-        run: wget https://github.com/3-manifolds/Sage_macOS/releases/download/v1.3/SageMath-9.5_x86_64.dmg
-      - name: Mount dmg
-        run: sudo hdiutil attach SageMath-9.5_x86_64.dmg
-      - name: Navigate to new volume
-        run: cd /Volumes/SageMath-9.5/
-      - name: Install dmg
-        run: open /Volumes/SageMath-9.5/SageMath-9-5.app
-      - name: Unmount dmg
-        run: sudo hdiutil detach /Volumes/SageMath-9.5
       - uses: actions/checkout@v3
+      - name: Brew install
+        run: brew install --build-from-source ./sage.rb
       - name: Compile code
         run: sage setup.py develop
       - name: Test with python

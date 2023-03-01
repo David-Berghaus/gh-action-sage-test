@@ -1,3 +1,5 @@
+# This is based on the cask file provided by brew but with modified version number
+
 cask "sage" do
   arch arm: "arm64", intel: "x86_64"
 

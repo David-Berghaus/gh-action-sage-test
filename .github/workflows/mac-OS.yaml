@@ -38,11 +38,6 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate sagelib
-          sagelib setup.py develop
-      - name: Conda activate
-        shell: bash -l {0}
-        run: |
-          conda activate sagelib
           sage setup.py develop
       - name: Conda activate
         shell: bash -l {0}

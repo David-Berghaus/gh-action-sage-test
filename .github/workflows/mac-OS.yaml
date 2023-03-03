@@ -35,7 +35,22 @@ jobs:
           mamba env update --quiet -n test -f environment.test.yml
           conda list
       - name: Compile code
-        run: sage setup.py develop
+        run: sagelib setup.py develop
+      - name: Conda activate
+        shell: bash -l {0}
+        run: |
+          conda activate sagelib
+          sagelib setup.py develop
+      - name: Conda activate
+        shell: bash -l {0}
+        run: |
+          conda activate sagelib
+          sage setup.py develop
+      - name: Conda activate
+        shell: bash -l {0}
+        run: |
+          conda activate sage
+          sage setup.py develop
     env:
       MAKEFLAGS: -j2
       SAGE_NUM_THREADS: 2

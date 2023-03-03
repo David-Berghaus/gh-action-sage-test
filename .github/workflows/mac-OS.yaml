@@ -37,11 +37,6 @@ jobs:
       - name: Conda activate
         shell: bash -l {0}
         run: |
-          conda activate sagelib
-          sage setup.py develop
-      - name: Conda activate
-        shell: bash -l {0}
-        run: |
           conda activate sage
           sage setup.py develop
     env:

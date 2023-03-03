@@ -38,7 +38,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate test
-          sage setup.py develop
+          sagelib setup.py develop
     env:
       MAKEFLAGS: -j2
       SAGE_NUM_THREADS: 2

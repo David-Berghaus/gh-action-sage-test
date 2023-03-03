@@ -34,8 +34,6 @@ jobs:
           cat environment.test.yml
           mamba env update --quiet -n test -f environment.test.yml
           conda list
-      - name: Compile code
-        run: sagelib setup.py develop
       - name: Conda activate
         shell: bash -l {0}
         run: |
